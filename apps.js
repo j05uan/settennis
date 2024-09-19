@@ -2,32 +2,26 @@ const Calcularganador = function () {
     const Jugador1 = parseFloat(document.getElementById("Jugador1").value);
     const Jugador2 = parseFloat(document.getElementById("Jugador2").value);
 
-    let men= Jugador1
-    let mayor=function(){
-        if (Jugador1 > Jugador2);
-            may=Jugador1
-            men=Jugador2
-        }
-
-    diferencia=may-men
-
-    let resultado = "" ;
-
-    switch (diferencia) {
-        case diferencia>2:
-            resultado = "El Juego se Termino";
-            break;
-        case diferencia<2:
-            resultado =  "El Juego Termino";
-            break;
-        default:
-            resultado="Operador no valido";
+    let mayor, men;
+    
+    if (Jugador1 > Jugador2) {
+        mayor = Jugador1;
+        men = Jugador2;
+    } else {
+        mayor = Jugador2;
+        men = Jugador1;
     }
 
-    document.getElementById("resultado").innerHTML="Resultado: "+resultado;
+    const diferencia = mayor - men;
+    let resultado = "";
 
+    if (diferencia > 2) {
+        resultado = "El Juego se Termino";
+    } else if (diferencia < 2) {
+        resultado = "El Juego Termino";
+    } else {
+        resultado = "Operador no valido";
+    }
 
-
-
-
+    document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
 }
